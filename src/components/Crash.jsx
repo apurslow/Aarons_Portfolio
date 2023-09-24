@@ -8,7 +8,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 
 export function Crash(props) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/models/crash/untitled.glb')
+  const { nodes, materials, animations } = useGLTF('./models/crash/untitled.glb')
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
@@ -32,4 +32,4 @@ export function Crash(props) {
   )
 } 
 
-useGLTF.preload('/untitled.glb')
+useGLTF.preload('./untitled.glb')
