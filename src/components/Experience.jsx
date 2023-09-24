@@ -7,7 +7,7 @@ import { Crash } from "./Crash";
 export const Experience = () => {
   return (
     <>
-      <Suspense fallback={<Loader />}></Suspense>
+      <Suspense fallback={<Loader />}>
       <OrbitControls />
       <ambientLight intensity={1} />
       <mesh>
@@ -15,6 +15,7 @@ export const Experience = () => {
         <meshNormalMaterial />
         <Crash  />
       </mesh>
+      </Suspense>
     </>
   );
 };
