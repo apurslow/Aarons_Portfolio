@@ -5,6 +5,9 @@ import { Loader } from "./LoadingScreen";
 import { Crash } from "./Crash";
 
 export const Experience = () => {
+  
+ 
+
   return (
     <>
       <Suspense fallback={<Loader />}>
