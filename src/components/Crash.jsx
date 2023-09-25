@@ -5,15 +5,30 @@ Command: npx gltfjsx@6.2.13 public/models/crash/untitled.glb -k
 
 import React, { useRef, useEffect } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
+import { useControls } from "leva";
 
 export function Crash(props) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('./models/crash/untitled.glb')
+  const { nodes, materials, animations } = useGLTF('./models/crash/Crash_New.glb')
   const { actions } = useAnimations(animations, group)
 
-  useEffect(() => {
-    actions['A_CP3701_Run'].play()
-  }, [actions])
+ let oldAction = null;
+
+  useControls({
+   
+    //come up with a better way to do this, currently manually putting in the names of the animations
+    'Crash': {
+        value: "A_CP3701_Celebrate_Bravo",
+        options:["A_CP3701_Celebrate_Bravo", "A_CP3701_Run","A_CP3701_Idle","A_CP3701_Level_Start_Dance", "A_CP3701_JumpUpLoop","A_CP3701_Crash_Attack_Spin_Loop"],
+        onChange: (value) => {
+            if (oldAction) oldAction.fadeOut(0.5).stop();
+            oldAction = actions[value];
+            actions[value].reset().fadeIn(0.5).play()
+           
+        }
+            },
+        })  
+     
   
 
   return (
@@ -32,4 +47,4 @@ export function Crash(props) {
   )
 } 
 
-useGLTF.preload('./untitled.glb')
+useGLTF.preload('./Crash_New.glb')
