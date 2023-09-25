@@ -19,7 +19,7 @@ export function Crash(props) {
     //come up with a better way to do this, currently manually putting in the names of the animations
     'Crash': {
         value: "A_CP3701_Celebrate_Bravo",
-        options:["A_CP3701_Celebrate_Bravo", "A_CP3701_Run","A_CP3701_Idle","A_CP3701_Level_Start_Dance", "A_CP3701_JumpUpLoop"],
+        options:["A_CP3701_Celebrate_Bravo", "A_CP3701_Run","A_CP3701_Idle","A_CP3701_Level_Start_Dance", "A_CP3701_JumpUpLoop","A_CP3701_Crash_Attack_Spin_Loop"],
         onChange: (value) => {
             if (oldAction) oldAction.fadeOut(0.5).stop();
             oldAction = actions[value];
